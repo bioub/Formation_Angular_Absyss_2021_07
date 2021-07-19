@@ -1,0 +1,40 @@
+<!-- <form (submit)="create($event)">
+  <div>
+    Prénom : <input [value]="user.firstName" (input)="user.firstName = $any($event.target).value" />
+  </div>
+  <div>
+    Nom : <input [value]="user.lastName" (input)="user.lastName = $any($event.target).value" />
+  </div>
+  <button>Submit</button>
+</form> -->
+<form (submit)="create($event)"> <!-- const formRef = document.querySelector('form')-->
+  <div>
+    Prénom :
+    <!-- <input
+      name="firstName"
+      [ngModel]="user.firstName"
+      (ngModelChange)="user.firstName = $event"
+      required
+    /> -->
+    <input
+      name="firstName"
+      [(ngModel)]="user.firstName"
+      required
+    />
+    <!-- [()] BANANA IN A BOX -->
+    <!-- <ng-template [ngIf]="user.firstName === ''">
+      <p>Le prénom est obligatoire</p>
+    </ng-template> -->
+    <p *ngIf="user.firstName === ''">Le prénom est obligatoire</p>
+  </div>
+  <div>
+    Nom :
+    <input
+      name="lastName"
+      [ngClass]="checkValidity('lastName')"
+      [value]="user.lastName"
+      (input)="user.lastName = $any($event.target).value"
+    />
+  </div>
+  <button>Submit</button>
+</form>

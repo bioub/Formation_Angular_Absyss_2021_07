@@ -1,0 +1,16 @@
+<p>hello {{ name }}!</p>
+
+<!-- <input value="Romain" class="my-input" required="required" /> -->
+<!--
+  const inputRef = document.createElement('input');
+  inputRef.value = 'Romain';
+  inputRef.className = 'my-input';
+  inputRef.required = true;
+-->
+
+<!-- NE PAS FAIRE CAR CONVERTI EN STRING <input value="{{name}}" /> -->
+<input [value]="name" />
+<input [attr.toto]="name" />
+<input [class.pair]="name.length % 2 === 0" />
+<input [style.backgroundColor]="name.length % 2 === 0 ? 'red' : 'blue'" />
+<!-- <input type="checkbox" [checked]="name.length % 2 === 0" /> -->
