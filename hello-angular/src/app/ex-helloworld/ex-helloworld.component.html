@@ -1,9 +1,9 @@
 <div>
-  Prénom : <input />
+  Prénom : <input [formControl]="name" />
 </div>
 
 <p>
-  Bonjour LE_PRENOM !
+  Bonjour {{name.value}} !
 </p>
 
 <!--

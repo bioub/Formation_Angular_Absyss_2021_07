@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'vt-ex-helloworld',
@@ -7,11 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExHelloworldComponent implements OnInit {
 
-  name = 'Romain';
+  name = new FormControl('Romain');
+
 
   constructor() { }
 
   ngOnInit(): void {
+    this.name.valueChanges.subscribe((val) => {
+      console.log(val);
+    });
   }
 
 }
