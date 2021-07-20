@@ -5,16 +5,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { TodosModule } from './todos/todos.module';
+import { HomeComponent } from './core/home/home.component';
+import { NotFoundComponent } from './core/not-found/not-found.component';
+import { UsersModule } from './users/users.module';
+import { TopBarComponent } from './core/top-bar/top-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
+    NotFoundComponent,
+    TopBarComponent,
   ],
   imports: [
     BrowserModule,
     SharedModule,
-    AppRoutingModule,
     TodosModule,
+    UsersModule,
+    AppRoutingModule, // en dernier à cause de la route wildcard "**"
   ],
   providers: [],
   bootstrap: [AppComponent]
