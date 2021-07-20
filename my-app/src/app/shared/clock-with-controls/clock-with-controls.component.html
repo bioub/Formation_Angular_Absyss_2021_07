@@ -1,0 +1,9 @@
+<div>
+  <button (click)="showClock = !showClock">{{ showClock ? 'Off' : 'On' }}</button>
+</div>
+
+<div>
+  Délai : <input type="number" [value]="delay" (input)="delay = $any($event.target).value">
+</div>
+
+<my-clock *ngIf="showClock" [delay]="delay"></my-clock>
