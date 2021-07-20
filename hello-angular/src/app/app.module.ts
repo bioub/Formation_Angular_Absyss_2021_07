@@ -8,6 +8,7 @@ import { UserFormComponent } from './user-form/user-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ExHelloworldComponent } from './ex-helloworld/ex-helloworld.component';
 import { ExTristatebuttonComponent } from './ex-tristatebutton/ex-tristatebutton.component';
+import { ButtongroupComponent } from './buttongroup/buttongroup.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ExTristatebuttonComponent } from './ex-tristatebutton/ex-tristatebutton
     UserFormComponent,
     ExHelloworldComponent,
     ExTristatebuttonComponent,
+    ButtongroupComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,11 +3,16 @@
 <vt-user-form></vt-user-form>
 
 <vt-ex-helloworld></vt-ex-helloworld>
+
+
+
 <vt-ex-tristatebutton></vt-ex-tristatebutton>
 
 
 
 <vt-ex-tristatebutton [values]="['Rouge', 'Vert', 'Bleu']" [selected]="couleur" (selectedChange)="couleur = $event"></vt-ex-tristatebutton>
 <vt-ex-tristatebutton [values]="['Rouge', 'Vert', 'Bleu']" [(selected)]="couleur"></vt-ex-tristatebutton>
+<p [id]>Vous avez sélectionné {{couleur}}</p>
 
-<p>Vous avez sélectionné {{couleur}}</p>
+<vt-buttongroup [values]="['Rouge', 'Vert', 'Bleu']" [(selected)]="couleur"></vt-buttongroup>
+
