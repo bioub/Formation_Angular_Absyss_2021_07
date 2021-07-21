@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "hello-rxjs"
+		},
+		{
+			"path": "hello-redux"
 		}
 	],
 	"settings": {}
