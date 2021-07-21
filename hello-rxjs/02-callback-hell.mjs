@@ -32,7 +32,7 @@ fs.readFile("package.json", { encoding: "utf-8" }, (err, content) => {
 fs.promises
   .readFile("package.json", { encoding: "utf-8" })
   .then((content) => {
-    return fs.writeFile("package.json.copy", content);
+    return fs.promises.writeFile("package.json.copy", content);
   })
   .then(() => {
     console.log("COPY DONE");
@@ -40,3 +40,25 @@ fs.promises
   .catch((err) => {
     console.log(err);
   });
+
+async function main() {
+  try {
+    const content = await fs.promises.readFile("package.json", { encoding: "utf-8" });
+    await fs.promises.writeFile("package.json.copy", content);
+    console.log("COPY DONE");
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+main();
+
+// try {
+//   const content = await fs.promises.readFile("package.json", {
+//     encoding: "utf-8",
+//   });
+//   await fs.promises.writeFile("package.json.copy", content);
+//   console.log("COPY DONE");
+// } catch (err) {
+//   console.log(err);
+// }

@@ -4,6 +4,7 @@ import { ClockComponent } from './clock/clock.component';
 import { ClockWithControlsComponent } from './clock-with-controls/clock-with-controls.component';
 import { CardComponent } from './card/card.component';
 import { CardTitleComponent } from './card/card-title/card-title.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -18,7 +19,11 @@ import { CardTitleComponent } from './card/card-title/card-title.component';
     CommonModule
   ],
   exports: [
-    CommonModule, // en exportant un module ici, il sera importé au moment d'importer SharedModule
+     // en exportant un module ici, il sera importé au moment d'importer SharedModule
+    CommonModule,
+    ReactiveFormsModule,
+
+
     ClockComponent,
     ClockWithControlsComponent,
     CardComponent,

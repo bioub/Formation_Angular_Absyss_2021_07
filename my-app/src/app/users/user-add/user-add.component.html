@@ -1,1 +1,14 @@
-<p>user-add works!</p>
+<form [formGroup]="userForm" (submit)="addUser()">
+  <p>
+    Name : <input formControlName="name" />
+  </p>
+  <p>
+    Email : <input formControlName="email" />
+  </p>
+  <p>
+    Phone : <input formControlName="phone" />
+  </p>
+  <p>
+    <button [disabled]="userForm.invalid">Add</button>
+  </p>
+</form>

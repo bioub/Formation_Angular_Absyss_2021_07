@@ -6,7 +6,12 @@ import { NotFoundComponent } from './core/not-found/not-found.component';
 const routes: Routes = [{
   path: '',
   component: HomeComponent,
-}, {
+},
+{
+  path: 'users',
+  loadChildren: () => import('./users/users.module').then(m => m.UsersModule),
+},
+{
   path: '**',
   component: NotFoundComponent,
 }];

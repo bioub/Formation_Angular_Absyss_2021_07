@@ -7,10 +7,9 @@ import { SharedModule } from './shared/shared.module';
 import { TodosModule } from './todos/todos.module';
 import { HomeComponent } from './core/home/home.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
-import { UsersModule } from './users/users.module';
 import { TopBarComponent } from './core/top-bar/top-bar.component';
-import { UserService } from './users/shared/user.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NotFoundInterceptor } from './core/not-found.interceptor';
 
 @NgModule({
   declarations: [
@@ -24,11 +23,14 @@ import { HttpClientModule } from '@angular/common/http';
     SharedModule,
     HttpClientModule,
     TodosModule,
-    UsersModule,
     AppRoutingModule, // en dernier à cause de la route wildcard "**"
   ],
   providers: [
-
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: NotFoundInterceptor,
+      multi: true,
+    }
   ],
   bootstrap: [AppComponent]
 })

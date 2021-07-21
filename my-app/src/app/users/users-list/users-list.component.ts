@@ -22,6 +22,10 @@ export class UsersListComponent implements OnInit {
     this.userService.fetchAll().subscribe((users) => {
       this.users = users;
     });
+
+    this.userService.add$.subscribe((user) => {
+      this.users = [...this.users, user];
+    });
   }
 
 }

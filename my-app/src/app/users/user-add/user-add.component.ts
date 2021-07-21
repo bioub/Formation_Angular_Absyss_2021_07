@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserService } from '../shared/user.service';
 
 @Component({
   selector: 'my-user-add',
@@ -7,9 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserAddComponent implements OnInit {
 
-  constructor() { }
+  userForm = new FormGroup({
+    name: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.email]),
+    phone: new FormControl(''),
+  });
 
-  ngOnInit(): void {
+  constructor(private userService: UserService, private router: Router) {
   }
 
+  ngOnInit(): void {
+    // form d'update :
+    // this.userForm.setValue({})
+    this.userForm.valueChanges.subscribe((user) => {
+      console.log(user);
+    });
+  }
+
+  addUser() {
+    if (this.userForm.invalid) {
+      return;
+    }
+
+    this.userService.create(this.userForm.value).subscribe(() => {
+      this.router.navigate(['users'])
+    });
+  }
 }

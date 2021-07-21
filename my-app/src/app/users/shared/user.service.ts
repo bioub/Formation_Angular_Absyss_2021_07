@@ -1,14 +1,16 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from './user.model';
-import { delay } from 'rxjs/operators';
+import { delay, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private httpClient: HttpClient) { }
+  add$ = new EventEmitter<User>();
+
+  constructor(private httpClient: HttpClient) {}
 
   fetchAll() {
     return this.httpClient.get<User[]>('https://jsonplaceholder.typicode.com/users');
@@ -22,5 +24,13 @@ export class UserService {
     }
 
     return request$;
+  }
+
+  create(user: User) {
+    return this.httpClient.post<User>('https://jsonplaceholder.typicode.com/users', user).pipe(
+      tap((user: User) => {
+        this.add$.emit(user);
+      })
+    );
   }
 }
