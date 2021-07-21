@@ -9,6 +9,8 @@ import { HomeComponent } from './core/home/home.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { UsersModule } from './users/users.module';
 import { TopBarComponent } from './core/top-bar/top-bar.component';
+import { UserService } from './users/shared/user.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,11 +22,14 @@ import { TopBarComponent } from './core/top-bar/top-bar.component';
   imports: [
     BrowserModule,
     SharedModule,
+    HttpClientModule,
     TodosModule,
     UsersModule,
     AppRoutingModule, // en dernier à cause de la route wildcard "**"
   ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

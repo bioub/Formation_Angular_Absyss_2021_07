@@ -1,5 +1,9 @@
-<a routerLink="/">Home</a>
-<a routerLink="/users">Users</a>
+<a routerLink="/" routerLinkActive="current" [routerLinkActiveOptions]="{exact: true}">Home</a>
+<!-- <div routerLinkActive="current">
+  <a routerLink="/users">Users</a>
+</div> -->
+<a routerLink="/users" routerLinkActive="current">Users</a>
+
 
 <!--
 <a [routerLink]="'/users'">Users</a>
