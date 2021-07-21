@@ -5,6 +5,9 @@ import { ClockWithControlsComponent } from './clock-with-controls/clock-with-con
 import { CardComponent } from './card/card.component';
 import { CardTitleComponent } from './card/card-title/card-title.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ButtongroupComponent } from './buttongroup/buttongroup.component';
+import { CounterComponent } from './counter/counter.component';
+import { EchoWsComponent } from './echo-ws/echo-ws.component';
 
 
 
@@ -13,7 +16,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     ClockComponent,
     ClockWithControlsComponent,
     CardComponent,
-    CardTitleComponent
+    CardTitleComponent,
+    ButtongroupComponent,
+    CounterComponent,
+    EchoWsComponent,
   ],
   imports: [
     CommonModule
@@ -28,6 +34,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     ClockWithControlsComponent,
     CardComponent,
     CardTitleComponent,
+    ButtongroupComponent,
+    CounterComponent,
+    EchoWsComponent,
   ]
 })
 export class SharedModule { }

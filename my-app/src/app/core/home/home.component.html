@@ -1,3 +1,6 @@
-<p>home works!</p>
+<my-buttongroup [values]="['Rouge', 'Vert', 'Bleu']" [selected]="$any(color$ | async)" (selectedChange)="changeColor($event)"></my-buttongroup>
 
 <a href="https://angular.io">Angular Docs</a>
+
+
+<my-echo-ws></my-echo-ws>

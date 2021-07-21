@@ -1,0 +1,8 @@
+<form (submit)="send($event, inputRef.value)">
+  <input #inputRef />
+  <button>+</button>
+</form>
+
+<ul>
+  <li *ngFor="let message of messages">{{message}}</li>
+</ul>
